@@ -27,5 +27,4 @@ USER node
 ENV PORT=8080
 EXPOSE 8080
 
-# pm2 start --name="MyPRocess" npm -- run dev
-CMD ["pm2", "start",  "dist/main.js"]
+CMD ["pm2-runtime", "dist/main.js"]
