@@ -73,3 +73,27 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
   Nest is [MIT licensed](LICENSE).
+
+## Task 8
+
+- Link to the integrated frontend repository: https://github.com/AliaksandrVarachai/shop-react-redux-cloudfront/pull/5
+- Link to a hosted web-site: https://d1fxaqepkkpfnn.cloudfront.net
+
+### Task 8.1
+
+1. `Dockerfile` file is added
+2. `.dockerinfore` file is added
+3. Image is optimized:
+    - added more folders to `.dockerignore` file with explanations
+    - minimized docker size to about 100 Mb
+    - utilized multistage builds
+
+### Task 8.2
+
+1. Prepared Cart Service infrastructure with Elastic Beanstalk
+2. Deployed Cart Service with Elastic Beanstalk: http://varachai-cart-api-dev.eu-west-1.elasticbeanstalk.com
+3. Integrated FE with Cart Service using proxy API Gateway: https://278w6q7cf7.execute-api.eu-west-1.amazonaws.com
+
+### Task 8.3
+
+- Created PRs both for backend implementation and frontend integration
