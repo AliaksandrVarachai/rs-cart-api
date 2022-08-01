@@ -1,30 +1,24 @@
-# eb init --region=eu-west-1 --profile=epam-admin2
-# eb create development --single --cname=varachai-cart-api-dev
-
 # Base
 FROM node:16-alpine AS base
 
-WORKDIR /app
+WORKDIR /base-app
 
 # Dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # Build
-WORKDIR /app
-COPY . .
-RUN npm run build
+COPY . ./
+RUN npm run build && npm prune --production
 
 # Application
 FROM node:16-alpine AS application
 
-COPY --from=base /app/package*.json ./
-RUN npm install --only=production
-RUN npm install pm2 -g
-COPY --from=base /app/dist ./dist
+COPY --from=base /base-app/dist ./dist
+COPY --from=base /base-app/node_modules ./node_modules
 
 USER node
 ENV PORT=8080
 EXPOSE 8080
 
-CMD ["pm2-runtime", "dist/main.js"]
+CMD ["node", "dist/main.js"]
