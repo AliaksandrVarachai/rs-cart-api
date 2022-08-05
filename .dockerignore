@@ -1,0 +1,9 @@
+# Generated resources
+node_modules/
+dist/
+
+# Tests
+test/
+
+# Elastic Beanstalk files
+.elasticbeanstalk/
